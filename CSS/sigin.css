@@ -1,0 +1,800 @@
+/* ==========================================
+   MODERN SIGN-IN PANEL CSS
+   Premium Design with Animated Gradients, Glass Morphism, and Smooth Animations
+   ========================================== */
+
+/* 1. Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* 2. Body Settings - Animated Gradient Background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content is above overlay */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* 3. Typography - Modern & Animated */
+h1 {
+    color: #ffffff;
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    letter-spacing: -0.5px;
+    animation: slide-down 0.8s ease-out;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #667eea;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+h2,h1:hover {
+    color: #764ba2;
+    transform: translateX(5px);
+}
+p {
+    color: #555555;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.inf {
+    color: #667eea;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.95;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.inf:hover {
+    letter-spacing: 1.9px;
+    opacity: 1;
+   
+}
+
+/* 4. The Card Layout - Enhanced Glass Morphism with Glow */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 95px;
+    padding: 50px;
+    width: 500%;
+    max-width: 470px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 
+                0 0 60px rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    animation: pulse-glow 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card Gradient Border Effect */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+/* 
+.card:hover::before {
+    opacity: 0.5;
+    animation: shimmer 3s infinite;
+} */
+
+/* .card:hover {
+    box-shadow: 0 40px 100px rgba(102, 126, 234, 0.5), 
+                0 0 80px rgba(102, 126, 234, 0.3);
+    transform: translateY(-8px);
+    border-color: rgba(102, 126, 234, 0.5);
+} */
+
+.de {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slide-down 1s ease-out 0.2s backwards;
+}
+
+.h1 {
+    color: #667eea;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 5. Form Inputs - Enhanced Modern Style with Icons Animation */
+input[type="email"],
+input[type="text"] {
+    background-color: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    color: #333333;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    animation: slide-down 0.8s ease-out;
+}
+
+input[type="email"]::placeholder,
+input[type="text"]::placeholder {
+    color: #999999;
+    transition: all 0.3s ease;
+}
+
+input[type="email"]:hover::placeholder,
+input[type="text"]:hover::placeholder {
+    color: #667eea;
+}
+
+input[type="email"]::before,
+input[type="text"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+input[type="email"]:hover,
+input[type="text"]:hover {
+    border-color: #667eea;
+    background-color: #fafbfc;
+    box-shadow: inset 0 2px 8px rgba(102, 126, 234, 0.08);
+    transform: translateY(-3px);
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15),
+                inset 0 2px 8px rgba(102, 126, 234, 0.08);
+    transform: translateY(-4px) scale(1.01);
+}
+
+input[type="email"]:focus::placeholder,
+input[type="text"]:focus::placeholder {
+    color: transparent;
+}
+
+/* 6. Submit Button - Premium Design with Ripple Effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes button-glow {
+    0%, 100% { box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3), 0 0 20px rgba(102, 126, 234, 0.2); }
+    50% { box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5), 0 0 30px rgba(102, 126, 234, 0.4); }
+}
+
+.submit {
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    margin-top: -10px;
+    position: relative;
+    overflow: hidden;
+    animation: slide-down 1s ease-out 0.4s backwards;
+}
+
+.submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.submit::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.submit:hover {
+    transform: translateY(-7px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5), 
+                0 0 40px rgba(102, 126, 234, 0.3);
+    animation: button-glow 1.5s ease-in-out infinite;
+}
+
+.submit:hover::after {
+    opacity: 1;
+}
+
+.submit:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submit a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* 7. Register Link Section - Enhanced Design */
+.register {
+    text-align: center;
+    margin-top: -10px;
+    padding: 18px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #fafbfc 100%);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 1px solid #e8e8e8;
+    position: relative;
+    overflow: hidden;
+    animation: slide-down 1s ease-out 0.6s backwards;
+}
+
+
+
+.register:hover::before {
+    left: 100%;
+}
+
+.register h2 {
+    color: #000000;
+    font-size: 0.95rem;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.register h2 a {
+    color: #667eea;
+    font-weight: 700;
+    margin-left: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+.register h2 a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    color: white;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+.register h2 a:hover::after {
+    padding-left: 20px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.register h2 a:hover {
+    color: #fffdfd;
+    transform: translateX(3px);
+} 
+
+.register:hover {
+    background: linear-gradient(135deg, #000000 0%, #f5f5f5 100%);
+    box-shadow: 10px 8px 20px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+} 
+
+a {
+    text-decoration: none;
+    color: #667eea;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #f7f0ff;
+}
+
+/* 8. Social Login Section - Enhanced with Animations */
+.extrnal {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    animation: slide-down 1s ease-out 0.8s backwards;
+}
+
+.extrnal h6 {
+    color: #999999;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: -50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.extrnal:hover h6 {
+    color: #000000;
+    letter-spacing: 9px;
+}
+
+.extrnal ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.extrnal li {
+    animation: float 3s ease-in-out infinite;
+}
+
+.extrnal li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.extrnal li:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.extrnal li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    text-indent: -9999px;
+    overflow: hidden;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.extrnal li a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.extrnal li a:hover::before {
+    opacity: 1;
+}
+
+.extrnal li a:hover {
+    transform: translateY(-8px) scale(1.15) rotate(5deg);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5),
+                0 0 30px rgba(102, 126, 234, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Social Login Icons */
+.extrnal .A a {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg');
+}
+
+.extrnal .B a {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg');
+    background-color: #333333;
+}
+
+.extrnal .C a {
+    background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg');
+}
+
+/* 9. Labels and Form Structure Enhancement */
+label {
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+label:hover .i {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.i {
+    color: #666666;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* 10. Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 35px;
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .h1 {
+        font-size: 1.6rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .extrnal ul {
+        gap: 15px;
+    }
+
+    .extrnal li a {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 25px;
+    }
+
+    .h1 {
+        font-size: 1.4rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input[type="email"],
+    input[type="text"] {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+
+    .submit {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+
+    .extrnal ul {
+        gap: 10px;
+    }
+
+    .extrnal li a {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* 11. Accessibility Enhancements */
+input[type="email"]:disabled,
+input[type="text"]:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Focus Visible for Keyboard Navigation */
+input[type="email"]:focus-visible,
+input[type="text"]:focus-visible,
+.submit:focus-visible,
+a:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* ========================================== 
+   ANIMATED BUBBLE BACKGROUND
+   ========================================== */
+
+/* Bubble Container - Behind all content */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Individual Bubbles */
+.bubble {
+    position: fixed;
+    bottom: -100px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Bubble color variations matching the gradient */
+.bubble:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    background: radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.4), rgba(102, 126, 234, 0.1));
+    animation: float-bubble 8s infinite ease-in;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: 20%;
+    background: radial-gradient(circle at 30% 30%, rgba(240, 147, 251, 0.4), rgba(240, 147, 251, 0.1));
+    animation: float-bubble 10s infinite ease-in;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    left: 30%;
+    background: radial-gradient(circle at 30% 30%, rgba(118, 75, 162, 0.3), rgba(118, 75, 162, 0.05));
+    animation: float-bubble 12s infinite ease-in;
+    animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+    width: 70px;
+    height: 70px;
+    left: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(79, 172, 254, 0.4), rgba(79, 172, 254, 0.1));
+    animation: float-bubble 9s infinite ease-in;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(5) {
+    width: 90px;
+    height: 90px;
+    left: 65%;
+    background: radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.3), rgba(102, 126, 234, 0.05));
+    animation: float-bubble 11s infinite ease-in;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(6) {
+    width: 55px;
+    height: 55px;
+    left: 75%;
+    background: radial-gradient(circle at 30% 30%, rgba(240, 147, 251, 0.35), rgba(240, 147, 251, 0.08));
+    animation: float-bubble 7s infinite ease-in;
+    animation-delay: 1.5s;
+}
+
+.bubble:nth-child(7) {
+    width: 110px;
+    height: 110px;
+    left: 85%;
+    background: radial-gradient(circle at 30% 30%, rgba(79, 172, 254, 0.3), rgba(79, 172, 254, 0.05));
+    animation: float-bubble 13s infinite ease-in;
+    animation-delay: 5s;
+}
+
+.bubble:nth-child(8) {
+    width: 65px;
+    height: 65px;
+    left: 5%;
+    background: radial-gradient(circle at 30% 30%, rgba(118, 75, 162, 0.35), rgba(118, 75, 162, 0.08));
+    animation: float-bubble 10.5s infinite ease-in;
+    animation-delay: 2.5s;
+}
+
+.bubble:nth-child(9) {
+    width: 75px;
+    height: 75px;
+    left: 40%;
+    background: radial-gradient(circle at 30% 30%, rgba(240, 147, 251, 0.3), rgba(240, 147, 251, 0.06));
+    animation: float-bubble 9.5s infinite ease-in;
+    animation-delay: 3.5s;
+}
+
+.bubble:nth-child(10) {
+    width: 85px;
+    height: 85px;
+    left: 60%;
+    background: radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.35), rgba(102, 126, 234, 0.08));
+    animation: float-bubble 11.5s infinite ease-in;
+    animation-delay: 0.5s;
+}
+
+/* Bubble floating animation */
+@keyframes float-bubble {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Horizontal drift for bubbles */
+@keyframes drift {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+}
+
+/* Add subtle drift to bubbles */
+.bubble:nth-child(odd) {
+    animation-name: float-bubble, drift;
+    animation-duration: 8s, 4s;
+    animation-timing-function: ease-in, ease-in-out;
+}
+
+/* Gradient shift animation (if not already defined) */
+@keyframes gradientShift {
+    0% { background-position: 0% 70%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Slide down animation (if not already defined) */
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse glow animation (if not already defined) */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 60px rgba(102, 126, 234, 0.2);
+    }
+    50% {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(102, 126, 234, 0.35);
+    }
+}
+
+/* Float animation (if not already defined) */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
