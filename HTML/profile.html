@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Students Management System</title>
+    <link rel="stylesheet" href="../CSS/profile.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo-text">SMS</h1>
+            <p class="logo-subtext">Student Management</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item"><span class="nav-icon">📊</span><span class="nav-text">Dashboard</span></a>
+            <a href="education.html" class="nav-item"><span class="nav-icon">🎓</span><span class="nav-text">Education</span></a>
+            <a href="finance.html" class="nav-item"><span class="nav-icon">💸</span><span class="nav-text">Finance</span></a>
+            <a href="contact.html" class="nav-item"><span class="nav-icon">📞</span><span class="nav-text">Contact</span></a>
+            <a href="profile.html" class="nav-item active"><span class="nav-icon">👤</span><span class="nav-text">Profile</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="sigin.html" class="logout-btn">🚪 Sign Out</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <h2 class="page-title">User Profile</h2>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="Harsha Profile" class="profile-pic">
+                    <span class="user-name">Harsha</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="profile-page">
+            <section class="profile-hero">
+                <div class="profile-avatar" id="profileAvatar">H</div>
+                <div class="profile-summary">
+                    <p class="eyebrow">Profile Holder</p>
+                    <h1 id="profileHolderName">Harsha</h1>
+                    <p class="profile-role">Student Management User</p>
+                    <div class="profile-actions">
+                        <button class="primary-btn">Edit Profile</button>
+                        <button class="secondary-btn">Message</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-grid">
+                <div class="info-card">
+                    <h3>Profile Details</h3>
+                    <div class="detail-list" id="profileDetailsList"></div>
+                </div>
+                <div class="info-card">
+                    <h3>Contact Directory</h3>
+                    <div class="contact-list" id="profileContactList"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../JS/profile.js"></script>
+</body>
+</html>

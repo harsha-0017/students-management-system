@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Management System - Dashboard</title>
+    <link rel="stylesheet" href="../CSS/home.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo-text">SMS</h1>
+            <p class="logo-subtext">Student Management</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="#students" class="nav-item" data-section="students">
+                <span class="nav-icon">👥</span>
+                <span class="nav-text">All Students</span>
+            </a>
+            <a href="education.html" class="nav-item">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Education</span>
+            </a>
+            <a href="finance.html" class="nav-item">
+                <span class="nav-icon">💸</span>
+                <span class="nav-text">Finance</span>
+            </a>
+            <a href="contact.html" class="nav-item">
+                <span class="nav-icon">📞</span>
+                <span class="nav-text">Contact</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profile</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="sigin.html" class="logout-btn">🚪 Sign Out</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <h2 class="page-title">Student Management Dashboard</h2>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search students...">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+                    <a href="profile.html" class="user-name profile-link">Harsha</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="section active" id="dashboard-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon total-students">👥</div>
+                    <div class="stat-content">
+                        <h3>Total Students</h3>
+                        <p class="stat-value" id="totalStudents">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon active-students">✓</div>
+                    <div class="stat-content">
+                        <h3>Active Students</h3>
+                        <p class="stat-value" id="activeStudents">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon total-finance">💰</div>
+                    <div class="stat-content">
+                        <h3>Total Finance</h3>
+                        <p class="stat-value" id="totalFinance">$0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon avg-gpa">🎓</div>
+                    <div class="stat-content">
+                        <h3>Avg. GPA</h3>
+                        <p class="stat-value" id="avgGPA">0.0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <button class="action-btn add-student-btn" onclick="openAddStudentModal()">
+                    <span>➕</span> Add New Student
+                </button>
+                <button class="action-btn export-btn">
+                    <span>📥</span> Export Report
+                </button>
+                <button class="action-btn refresh-btn" onclick="loadStudents()">
+                    <span>🔄</span> Refresh
+                </button>
+            </div>
+
+            <div class="dashboard-card">
+                <h3 class="card-title">Recent Students</h3>
+                <div class="recent-students" id="recentStudents"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../JS/home.js"></script>
+</body>
+</html>
