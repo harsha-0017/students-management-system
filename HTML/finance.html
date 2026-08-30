@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Management - Students Management System</title>
+    <link rel="stylesheet" href="../CSS/finance.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo-text">STUDENT</h1>
+            <p class="logo-subtext">Management Hub</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item" data-section="dashboard">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="home.html" class="nav-item" data-section="students">
+                <span class="nav-icon">👥</span>
+                <span class="nav-text">Students</span>
+            </a>
+            <a href="education.html" class="nav-item" data-section="education">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Education</span>
+            </a>
+            <a href="finance.html" class="nav-item active" data-section="finance">
+                <span class="nav-icon">💰</span>
+                <span class="nav-text">Finance</span>
+            </a>
+            <a href="contact.html" class="nav-item" data-section="contact">
+                <span class="nav-icon">📞</span>
+                <span class="nav-text">Contact</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="sigin.html" class="logout-btn">🚪 Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Header -->
+        <div class="top-header">
+            <div class="header-left">
+                <h2>Finance Management</h2>
+                <p class="page-subtitle">Track fees, expenses, and financial records</p>
+            </div>
+            <div class="header-right">
+                <button class="add-transaction-btn" onclick="openAddTransactionModal()">+ Add Transaction</button>
+            </div>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Finance Statistics Cards -->
+            <div class="cards-grid">
+                <div class="overview-card">
+                    <div class="card-icon">💵</div>
+                    <div class="card-content">
+                        <h3>Total Fees</h3>
+                        <div class="card-value" id="totalFees">$0</div>
+                        <div class="card-subtitle">Annual tuition</div>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">📤</div>
+                    <div class="card-content">
+                        <h3>Total Paid</h3>
+                        <div class="card-value" id="totalPaid">$0</div>
+                        <div class="card-subtitle">Amount paid</div>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">📥</div>
+                    <div class="card-content">
+                        <h3>Outstanding</h3>
+                        <div class="card-value" id="outstanding">$0</div>
+                        <div class="card-subtitle">Due amount</div>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-content">
+                        <h3>Payment %</h3>
+                        <div class="card-value" id="paymentPercentage">0%</div>
+                        <div class="card-subtitle">Completion</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="transactions">Transactions</button>
+                <button class="tab-btn" data-tab="expenses">Expenses</button>
+                <button class="tab-btn" data-tab="reports">Reports</button>
+            </div>
+
+            <!-- Tab 1: Transactions -->
+            <div id="transactions-tab" class="tab-content active">
+                <div class="section-header">
+                    <h2>Financial Transactions</h2>
+                    <div class="filter-group">
+                        <select class="filter-select" id="transactionTypeFilter">
+                            <option value="">All Types</option>
+                            <option value="fee">Fee Payment</option>
+                            <option value="scholarship">Scholarship</option>
+                            <option value="refund">Refund</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Reference</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="transactionPagination"></div>
+            </div>
+
+            <!-- Tab 2: Expenses -->
+            <div id="expenses-tab" class="tab-content">
+                <div class="section-header">
+                    <h2>Expense Breakdown</h2>
+                    <div class="filter-group">
+                        <select class="filter-select" id="expenseCategoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="tuition">Tuition</option>
+                            <option value="accommodation">Accommodation</option>
+                            <option value="materials">Materials</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="expenses-grid" id="expensesGrid">
+                </div>
+            </div>
+
+            <!-- Tab 3: Reports -->
+            <div id="reports-tab" class="tab-content">
+                <div class="section-header">
+                    <h2>Financial Reports</h2>
+                </div>
+                <div class="reports-container">
+                    <!-- Payment Status Chart -->
+                    <div class="report-card">
+                        <h3>Payment Status Overview</h3>
+                        <div class="chart-container">
+                            <canvas id="paymentStatusChart" width="300" height="200"></canvas>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color paid"></span>
+                                <span>Paid</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color pending"></span>
+                                <span>Pending</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expense Category Breakdown -->
+                    <div class="report-card">
+                        <h3>Expense Categories</h3>
+                        <div id="expenseCategoryChart" class="category-breakdown">
+                        </div>
+                    </div>
+
+                    <!-- Monthly Summary -->
+                    <div class="report-card full-width">
+                        <h3>Monthly Transaction Summary</h3>
+                        <table class="summary-table">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Income</th>
+                                    <th>Expenses</th>
+                                    <th>Net</th>
+                                </tr>
+                            </thead>
+                            <tbody id="monthlySummaryBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Transaction Modal -->
+    <div id="addTransactionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Financial Transaction</h2>
+                <button class="modal-close" onclick="closeAddTransactionModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="transactionForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Description *</label>
+                            <input type="text" id="description" required placeholder="Enter description">
+                        </div>
+                        <div class="form-group">
+                            <label>Type *</label>
+                            <select id="transactionType" required>
+                                <option value="">Select Type</option>
+                                <option value="fee">Fee Payment</option>
+                                <option value="scholarship">Scholarship</option>
+                                <option value="refund">Refund</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Amount ($) *</label>
+                            <input type="number" id="amount" required placeholder="0.00" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Date *</label>
+                            <input type="date" id="transactionDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Status *</label>
+                            <select id="transactionStatus" required>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Reference</label>
+                            <input type="text" id="reference" placeholder="Transaction reference">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea id="notes" placeholder="Additional notes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeAddTransactionModal()">Cancel</button>
+                <button class="btn-primary" onclick="saveTransaction()">Save Transaction</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/finance.js"></script>
+</body>
+</html>
